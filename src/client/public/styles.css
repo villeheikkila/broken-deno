@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial sans-serif;
+  font-size: 16px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  background: white;
+  height: 80px;
+  padding: 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+nav ul {
+  display: flex;
+  place-items: center;
+  height: 100%;
+  list-style-type: none;
+}
+
+nav ul li:not(:last-child):not(:first-child) {
+  margin: 0 20px;
+}
+
+header {
+  display: flex;
+  place-content: center;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+main {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  grid-template-rows: auto 1fr auto;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.spacer-medium {
+  height: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 400px;
+  font-size: 1em;
+}
+
+thead tr {
+  text-align: left;
+  background-color: #342e37;
+  color: #ffffff;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  min-width: 150px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:hover {
+  background-color: #342e37;
+  color: #fafffd;
+}
+
+.pagination-buttons {
+  display: flex;
+  list-style-type: none;
+}
+
+.pagination-buttons li {
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.chip {
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  padding: 3px;
+  margin-left: 5px;
+}
