@@ -1,10 +1,15 @@
 import { categories } from "./constants/config.ts";
+import { colors } from "./constants/theme.ts";
+
+export type Colors = keyof typeof colors;
+export type Categories = typeof categories[number];
+export type Stock = "INSTOCK" | "LESSTHAN10" | "OUTOFSTOCK";
 
 export interface Item {
   id: string;
   type: string;
   name: string;
-  color: string[];
+  color: Colors[];
   price: number;
   manufacturer: string;
 }
@@ -21,9 +26,7 @@ export interface AvailabilityResponse {
 
 export interface ItemAvailability extends Item {
   index: number;
-  stock: "INSTOCK" | "LESSTHAN10" | "OUTOFSTOCK";
+  stock: Stock;
 }
-
-export type Categories = typeof categories[number];
 
 export type CacheData = Record<Categories, ItemAvailability[]>;

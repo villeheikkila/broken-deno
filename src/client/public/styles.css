@@ -11,7 +11,8 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
 }
 
@@ -42,6 +43,7 @@ header {
   place-content: center;
   padding: 20px;
   text-transform: uppercase;
+  height: 40px;
 }
 
 main {
@@ -49,7 +51,7 @@ main {
   height: 100%;
   width: 100%;
   justify-content: center;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
 }
 
 .table-wrapper {
@@ -66,12 +68,16 @@ table {
   border-collapse: collapse;
   min-width: 400px;
   font-size: 1em;
+  text-transform: capitalize;
 }
 
 thead tr {
   text-align: left;
   background-color: #342e37;
   color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 10;
 }
 
 th,
@@ -106,7 +112,10 @@ tbody tr:hover {
 .chip {
   background-color: black;
   color: white;
-  border-radius: 8px;
-  padding: 3px;
+  border-radius: 6px;
+  padding: 6px;
   margin-left: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: capitalize;
 }

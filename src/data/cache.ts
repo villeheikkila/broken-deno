@@ -21,6 +21,13 @@ class Cache<T extends Record<any, any>> {
   public set(key: keyof T, value: T[keyof T]): void {
     this.cache[key] = value;
   }
+
+  public getStats() {
+    return Object.entries(this.cache).reduce(
+      (current, [key]) => ({ ...current, [key]: this.cache[key].length }),
+      {}
+    );
+  }
 }
 
 export default Cache;

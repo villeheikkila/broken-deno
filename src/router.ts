@@ -1,5 +1,5 @@
 import { Router } from "https://deno.land/x/oak/mod.ts";
-import { renderCategoryPage } from "./client/render.tsx";
+import { renderCategoryPage, renderFrontPage } from "./client/render.tsx";
 import { refreshCache } from "./index.ts";
 
 const router = new Router();
@@ -7,6 +7,10 @@ const router = new Router();
 router.get("/refresh", (context) => {
   refreshCache();
   context.response.body = "Refreshing data!";
+});
+
+router.get("/front", (context) => {
+  context.response.body = renderFrontPage();
 });
 
 router.get("/shirts", (context) => {

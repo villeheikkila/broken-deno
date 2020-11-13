@@ -8,7 +8,9 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ categories, current }) => (
   <nav>
-    <strong>Broken API</strong>
+    <a href="/front">
+      <strong>Broken API</strong>
+    </a>
     <ul>
       {categories.map((category) => (
         <li

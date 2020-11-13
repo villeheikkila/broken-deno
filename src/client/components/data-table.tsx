@@ -1,4 +1,5 @@
 import { React } from "../../constants/dependencies.ts";
+import { colors } from "../../constants/theme.ts";
 import { Categories, ItemAvailability } from "../../types.ts";
 
 interface DataTableProps {
@@ -24,12 +25,19 @@ const DataTable: React.FC<DataTableProps> = ({ data, category, pages }) => (
         {data.map((item) => (
           <tr key={item.id}>
             <td>{item.index}</td>
-            <td>{item.name}</td>
+            <td>{item.name.toLowerCase()}</td>
             <td>{item.price}</td>
             <td>{item.manufacturer}</td>
             <td>
-              {item.color.map((color: string) => (
-                <span key={`${item.id}-${color}`} className="chip">
+              {item.color.map((color) => (
+                <span
+                  key={`${item.id}-${color}`}
+                  style={{
+                    backgroundColor: colors[color].backgroundColor,
+                    color: colors[color].color,
+                  }}
+                  className="chip"
+                >
                   {color}
                 </span>
               ))}

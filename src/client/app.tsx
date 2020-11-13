@@ -20,4 +20,31 @@ const App: React.FC<AppProps> = ({ data, category, pages }) => (
   </>
 );
 
+export const FrontPage: React.FC<{ stats: any }> = ({ stats }) => (
+  <>
+    <Navigation categories={categories} current={"shirts"} />
+    <header>
+      <h1>Welcome to the Broken-Deno</h1>
+    </header>
+    <div className="stats-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(stats).map(([key, value]: any) => (
+            <tr key={key}>
+              <td>{key}</td>
+              <td>{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </>
+);
+
 export default App;
