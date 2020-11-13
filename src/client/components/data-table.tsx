@@ -42,7 +42,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, category, pages }) => (
                 </span>
               ))}
             </td>
-            <td>{transformStockValue(item.stock)}</td>
+            <td className="availability">{transformStockValue(item.stock)}</td>
           </tr>
         ))}
       </tbody>

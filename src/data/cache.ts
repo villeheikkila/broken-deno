@@ -14,8 +14,7 @@ class Cache<T extends Record<any, any>> {
   }
 
   public getNumberOfPages(key: string) {
-    const length = this.cache[key]?.length;
-    return length ? (10 * Math.ceil(length / 1000)) / 10 - 1 : -1;
+    return roundTo(this.cache[key].length, 500) / 500;
   }
 
   public set(key: keyof T, value: T[keyof T]): void {
@@ -29,5 +28,8 @@ class Cache<T extends Record<any, any>> {
     );
   }
 }
+
+const roundTo = (value: number, nearest: number) =>
+  nearest * Math.ceil(value / nearest);
 
 export default Cache;

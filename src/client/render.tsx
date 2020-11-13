@@ -1,6 +1,7 @@
 import template from "./template.ts";
 import { cache } from "../index.ts";
-import App, { FrontPage } from "./app.tsx";
+import ProductTables from "./pages/product-tables.tsx";
+import FrontPage from "./pages/front-page.tsx";
 import { React, ReactDOM } from "../constants/dependencies.ts";
 import { Categories } from "../types.ts";
 
@@ -10,7 +11,7 @@ export const renderCategoryPage = (category: Categories, offset: number) => {
 
   return template(
     ReactDOM.renderToString(
-      <App data={data} category={category} pages={pages} />
+      <ProductTables data={data} category={category} pages={pages} />
     )
   );
 };
