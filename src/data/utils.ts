@@ -1,3 +1,5 @@
+import { Colors } from "../constants/dependencies.ts";
+
 export async function fetchAndRetry<T>(url: string, retries = 5): Promise<T> {
   const response = await fetch(url);
   const json = await response.json();
@@ -5,7 +7,11 @@ export async function fetchAndRetry<T>(url: string, retries = 5): Promise<T> {
   if (json && !(JSON.stringify(json.response) === `"[]"`)) return json;
 
   if (retries > 0) {
-    console.log(`HTTP request to ${url} failed, trying again in two seconds.`);
+    console.warn(
+      Colors.yellow(
+        `⚠️  ${timestamp()}: HTTP request to ${url} failed, trying again in two seconds.`
+      )
+    );
     await sleep(2);
     return await fetchAndRetry(url, --retries);
   }
@@ -26,3 +32,11 @@ export function combineObjectArrays<
     ...objectArray2.find((anObject2: B) => anObject1.id === anObject2.id),
   }));
 }
+
+export const timestamp = () => {
+  const currentTime = new Date();
+  return `${currentTime.getHours()}:${String(currentTime.getMinutes()).padStart(
+    2,
+    "0"
+  )}:${String(currentTime.getSeconds()).padStart(2, "0")}`;
+};

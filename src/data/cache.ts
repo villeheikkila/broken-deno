@@ -1,7 +1,9 @@
 class Cache<T extends Record<any, any>> {
   private cache: T = {} as T;
+  private counter = 0;
 
   public replace(store: T) {
+    this.counter++;
     this.cache = store;
   }
 
@@ -9,11 +11,17 @@ class Cache<T extends Record<any, any>> {
     return this.cache[key];
   }
 
+  public getCounter() {
+    return this.counter;
+  }
+
   public getPaginated(key: keyof T, offset: number): T[keyof T] {
+    if (this.isEmpty()) return [] as T[keyof T];
     return this.cache[key].slice(offset, offset + 500);
   }
 
   public getNumberOfPages(key: string) {
+    if (this.isEmpty()) return 0;
     return roundTo(this.cache[key].length, 500) / 500;
   }
 

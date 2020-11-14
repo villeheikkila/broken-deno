@@ -1,6 +1,6 @@
 import { React } from "../../constants/dependencies.ts";
 import { colors } from "../../constants/theme.ts";
-import { Categories, ItemAvailability } from "../../types.ts";
+import { Categories, Colors, ItemAvailability } from "../../types.ts";
 
 interface DataTableProps {
   data: ItemAvailability[];
@@ -33,10 +33,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, category, pages }) => (
                 {item.color.map((color) => (
                   <li
                     key={`${item.id}-${color}`}
-                    style={{
-                      backgroundColor: colors[color].backgroundColor,
-                      color: colors[color].color,
-                    }}
+                    style={colors[color] || colors["black"]}
                     className="chip"
                   >
                     {color}

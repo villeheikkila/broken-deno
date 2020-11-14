@@ -7,4 +7,4 @@ COPY ./src/constants/dependencies.ts .
 RUN deno cache dependencies.ts
 ADD . .
 RUN deno cache ./src/index.ts
-CMD ["run", "--allow-net", "--allow-read", "./src/index.ts"]
+CMD ["run", "--allow-net", "--allow-read", "--unstable", "./src/index.ts"]
