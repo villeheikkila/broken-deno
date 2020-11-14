@@ -3,12 +3,12 @@ import { Categories } from "../../types.ts";
 
 interface NavigationProps {
   categories: readonly Categories[];
-  current: Categories;
+  current?: Categories;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ categories, current }) => (
   <nav>
-    <a href="/front">
+    <a href="/">
       <strong>Broken 🦕</strong>
     </a>
     <ul>

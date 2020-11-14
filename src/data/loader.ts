@@ -43,10 +43,8 @@ export const loader = async () => {
     combineObjectArrays(category, availability)
   );
 
-  const finalObject = categories.reduce(
+  return categories.reduce(
     (result, category, i) => ({ ...result, [category]: combinedArrays[i] }),
     {} as CacheData
   );
-
-  return finalObject;
 };

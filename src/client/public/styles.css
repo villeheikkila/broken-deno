@@ -42,6 +42,12 @@ nav ul li {
   background-color: rgba(0, 0, 0, 0.15);
 }
 
+nav ul .active {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 1) !important;
+}
+
 nav ul li:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
@@ -101,16 +107,6 @@ main {
   justify-self: center;
 }
 
-.table-wrapper h2 {
-  place-self: center;
-  font-size: 24px;
-  padding: 20px;
-}
-
-.spacer-medium {
-  height: 30px;
-}
-
 table {
   border-collapse: collapse;
   min-width: 400px;
@@ -126,7 +122,7 @@ thead tr {
 }
 
 thead th {
-  padding: 24px;
+  padding: 20px 15px;
   text-transform: uppercase;
   font-size: 14px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -136,12 +132,17 @@ thead th {
 th,
 td {
   padding: 12px 15px;
-  min-width: 180px;
+  min-width: 150px;
 }
 
-th:first-child,
-td:first-child {
+.table-wrapper th:first-child,
+.table-wrapper td:first-child {
   min-width: 30px;
+}
+
+.table-wrapper th:nth-child(2),
+.table-wrapper td:nth-child(2) {
+  width: 300px;
 }
 
 td a {
@@ -199,12 +200,32 @@ tbody tr {
   text-decoration: none;
 }
 
+.chips {
+  display: flex;
+  list-style-type: none;
+}
+
 .chip {
   color: white;
   border-radius: 6px;
   padding: 6px;
-  margin-left: 5px;
   font-size: 10px;
   font-weight: 600;
   text-transform: capitalize;
+}
+
+.chip:not(:first-child) {
+  margin-left: 10px;
+}
+
+.front-page-table {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.front-page-table h2 {
+  place-self: center;
+  font-size: 24px;
+  padding: 20px;
 }

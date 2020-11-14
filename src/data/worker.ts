@@ -1,4 +1,3 @@
-import { CacheData } from "../types.ts";
 import { loader } from "./loader.ts";
 
 self.onmessage = async () => {

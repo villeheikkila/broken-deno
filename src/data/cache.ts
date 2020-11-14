@@ -10,7 +10,7 @@ class Cache<T extends Record<any, any>> {
   }
 
   public getPaginated(key: keyof T, offset: number): T[keyof T] {
-    return this.cache[key]?.slice(offset, offset + 500) || [];
+    return this.cache[key].slice(offset, offset + 500);
   }
 
   public getNumberOfPages(key: string) {
@@ -21,11 +21,15 @@ class Cache<T extends Record<any, any>> {
     this.cache[key] = value;
   }
 
-  public getStats() {
+  public getStats(): Record<string, number> {
     return Object.entries(this.cache).reduce(
       (current, [key]) => ({ ...current, [key]: this.cache[key].length }),
       {}
     );
+  }
+
+  public isEmpty(): boolean {
+    return Object.keys(this.cache).length === 0;
   }
 }
 

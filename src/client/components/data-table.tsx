@@ -29,18 +29,20 @@ const DataTable: React.FC<DataTableProps> = ({ data, category, pages }) => (
             <td>{item.price}</td>
             <td>{item.manufacturer}</td>
             <td>
-              {item.color.map((color) => (
-                <span
-                  key={`${item.id}-${color}`}
-                  style={{
-                    backgroundColor: colors[color].backgroundColor,
-                    color: colors[color].color,
-                  }}
-                  className="chip"
-                >
-                  {color}
-                </span>
-              ))}
+              <ul className="chips">
+                {item.color.map((color) => (
+                  <li
+                    key={`${item.id}-${color}`}
+                    style={{
+                      backgroundColor: colors[color].backgroundColor,
+                      color: colors[color].color,
+                    }}
+                    className="chip"
+                  >
+                    {color}
+                  </li>
+                ))}
+              </ul>
             </td>
             <td className="availability">{transformStockValue(item.stock)}</td>
           </tr>
@@ -51,7 +53,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, category, pages }) => (
       {Array.from(Array(pages), (_, i) => (
         <li key={i}>
           <a href={`/${category}/${i * 500}`}>
-            {i * 500}-{i * 500 + 500}
+            {i * 500 + 1}-{i * 500 + 500}
           </a>
         </li>
       ))}

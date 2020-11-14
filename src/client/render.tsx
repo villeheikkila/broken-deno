@@ -6,8 +6,8 @@ import { React, ReactDOM } from "../constants/dependencies.ts";
 import { Categories } from "../types.ts";
 
 export const renderCategoryPage = (category: Categories, offset: number) => {
-  const data = cache.getPaginated(category, offset);
-  const pages = cache.getNumberOfPages(category);
+  const data = !cache.isEmpty() ? cache.getPaginated(category, offset) : [];
+  const pages = !cache.isEmpty() ? cache.getNumberOfPages(category) : 0;
 
   return template(
     ReactDOM.renderToString(
