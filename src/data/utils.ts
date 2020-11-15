@@ -4,7 +4,7 @@ export async function fetchAndRetry<T>(url: string, retries = 5): Promise<T> {
   const response = await fetch(url);
   const json = await response.json();
 
-  if (json && !(JSON.stringify(json.response) === `"[]"`)) return json;
+  if (json && !(json?.response === "[]")) return json;
 
   if (retries > 0) {
     console.warn(
