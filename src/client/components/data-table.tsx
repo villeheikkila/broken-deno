@@ -1,6 +1,6 @@
 import { React } from "../../constants/dependencies.ts";
 import { colors } from "../../constants/theme.ts";
-import { Categories, Colors, ItemAvailability } from "../../types.ts";
+import { Categories, ItemAvailability } from "../../types.ts";
 
 interface DataTableProps {
   data: ItemAvailability[];

@@ -25,7 +25,3 @@ Or build and and run it as a docker image:
 You can also run the project from dockerhub
 
 `docker run -it --init -p 8000:8000 villeheikkila/broken-deno:latest`
-
-Currently a demo instance is also running at
-
-https://tastekeeper.xyz/

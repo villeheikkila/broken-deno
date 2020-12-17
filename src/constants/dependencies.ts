@@ -5,4 +5,4 @@ import ReactDOM from "https://dev.jspm.io/react-dom@16.13.1/server";
 import { Application, Context, send } from "https://deno.land/x/oak/mod.ts";
 import * as Colors from "https://deno.land/std/fmt/colors.ts";
 
-export { React, ReactDOM, Application, Context, send, Colors };
+export { Application, Colors, Context, React, ReactDOM, send };

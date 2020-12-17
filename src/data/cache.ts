@@ -25,14 +25,14 @@ class Cache<T extends Record<any, any>> {
     return roundTo(this.cache[key].length, 500) / 500;
   }
 
-  public set(key: keyof T, value: T[keyof T]): void {
+  public set(key: keyof T, value: T[keyof T]) {
     this.cache[key] = value;
   }
 
   public getStats(): Record<string, number> {
     return Object.entries(this.cache).reduce(
       (current, [key]) => ({ ...current, [key]: this.cache[key].length }),
-      {}
+      {},
     );
   }
 

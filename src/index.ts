@@ -18,8 +18,8 @@ loader.onmessage = ({ data }: { data: CacheData }) => {
   cache.replace(data);
   console.info(
     Colors.green(
-      `🦕 ${timestamp()}: Cache updated. Updated ${cache.getCounter()} times since launch.`
-    )
+      `🦕 ${timestamp()}: Cache updated. Updated ${cache.getCounter()} times since launch.`,
+    ),
   );
 };
 

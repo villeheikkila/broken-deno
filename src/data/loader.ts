@@ -11,23 +11,23 @@ export const loader = async () => {
   const productData = await Promise.all(
     categories.map((category) =>
       fetchAndRetry<Item[]>(`${baseUrl}/products/${category}`)
-    )
+    ),
   );
 
   const manufacturers = [
     ...new Set(
       ([] as Item[])
         .concat(...productData)
-        .map(({ manufacturer }) => manufacturer)
+        .map(({ manufacturer }) => manufacturer),
     ),
   ];
 
   const availabilityData = await Promise.all(
     manufacturers.map((manufacturer) =>
       fetchAndRetry<AvailabilityResponse>(
-        `${baseUrl}/availability/${manufacturer}`
+        `${baseUrl}/availability/${manufacturer}`,
       )
-    )
+    ),
   );
 
   const availabilityResponse = availabilityData.map(({ response }) => response);
@@ -45,6 +45,6 @@ export const loader = async () => {
 
   return categories.reduce(
     (result, category, i) => ({ ...result, [category]: combinedArrays[i] }),
-    {} as CacheData
+    {} as CacheData,
   );
 };
